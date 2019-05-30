@@ -1,0 +1,42 @@
+{
+    "success": true,
+    "data": {
+        "AMS": {
+            "0": {
+                "price": 14899,
+                "airline": "KL",
+                "flight_number": 904,
+                "departure_at": "2019-06-20T14:00:00Z",
+                "return_at": "2019-06-24T19:15:00Z",
+                "expires_at": "2019-06-01T18:20:58Z"
+            },
+            "1": {
+                "price": 10914,
+                "airline": "DP",
+                "flight_number": 913,
+                "departure_at": "2019-06-01T09:40:00Z",
+                "return_at": "2019-06-08T09:30:00Z",
+                "expires_at": "2019-06-01T09:40:00Z"
+            },
+            "2": {
+                "price": 16948,
+                "airline": "U6",
+                "flight_number": 793,
+                "departure_at": "2019-06-13T06:30:00Z",
+                "return_at": "2019-06-15T09:30:00Z",
+                "expires_at": "2019-06-02T12:09:58Z"
+            },
+            "3": {
+                "price": 18566,
+                "airline": "B2",
+                "flight_number": 974,
+                "departure_at": "2019-06-11T17:05:00Z",
+                "return_at": "2019-06-15T09:30:00Z",
+                "expires_at": "2019-06-02T04:59:07Z"
+            }
+        }
+    },
+    "error": null,
+    "currency": "rub"
+}
+
