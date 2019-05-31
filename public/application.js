@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', event => {
         })
             const fullObj = await res.json();
             console.log(fullObj)
+            window.location.href = '/flights'
 
 
         })

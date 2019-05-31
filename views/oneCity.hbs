@@ -1,0 +1,45 @@
+<h1>{{name}}</h1>
+
+<p></p>
+
+<div class="row">
+    <div class="col-2">
+ Стоимость:
+{{#each onecity.price}}
+<div>{{this}} руб.</div>
+<hr>
+{{/each}}
+</div>
+    <div class="col-2">
+ Дата вылета:
+{{#each onecity.departure_at}}
+<div>{{this}}</div>
+<hr>
+{{/each}}
+</div>
+
+    <div class="col-2">
+ Дата прилета:
+{{#each onecity.return_at}}
+<div>{{this}}</div>
+<hr>
+{{/each}}
+</div>
+
+    <div class="col-1">
+ Авиалинии:
+{{#each onecity.airline}}
+<div>{{this}}</div>
+<hr>
+{{/each}}
+</div>
+
+    <div class="col-2">
+ Номер рейса:
+{{#each onecity.flight_number}}
+<div>{{this}}</div>
+<hr>
+{{/each}}
+</div>
+
+</div>

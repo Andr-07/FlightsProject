@@ -1,0 +1,61 @@
+<h1  class="text-center">Информация по авиабилетам</h1>
+<br>
+
+<h4>Дешевые билеты по направлениям:</h4>
+<hr>
+
+<div class="row">
+    <div class="col-2">
+{{#each name}}
+<p>{{this}}</p>
+{{/each}}
+</div>
+    <div class="col-2">
+{{#each cheapPrice}}
+<p>Цены от {{this}} руб.</p>
+{{/each}}
+</div>
+
+    <div class="col-2">
+{{#each arrCities}}
+<p> <a href="/flights/{{this}}">Узнать подробнее</a></p>
+{{/each}}
+</div>
+
+</div>
+
+{{!-- {{#each name}}
+
+{{this}}
+{{/each}}
+
+
+{{#each city}}
+<table style="border: solid 1px black">
+ {{#each this.price}} 
+    <td>
+{{this}} руб.
+</td>
+{{/each}}
+</tr>
+<tr>
+ {{#each this.departure_at}} 
+    <td>
+Дата вылета: {{this}}
+</td>
+{{/each}}
+</tr>
+<tr>
+ {{#each this.return_at}} 
+    <td>
+{{this}}
+</td>
+{{/each}}
+</tr>
+
+
+</table>
+<p></p>
+<hr>
+<p></p>
+{{/each}} --}}
