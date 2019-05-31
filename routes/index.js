@@ -58,22 +58,23 @@ function isEmpty(obj) {
   return true;
 }
 
-router.post('/getFlights', async function (req,res){
-  let resp;
-  let arrFlights = [];
-  for (let i = 1; i < arrCities.length; i++) {
-    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&return_date=${req.body.return_date}&token=${token}`)
-    let fullJson = await resp.json();
-    if (!isEmpty(fullJson.data)) {
-      //  console.log(fullJson.data);
-      arrFlights.push(fullJson.data)
-      // arrNewCities.push(fullJson.name)
-     }
-    }
-  // console.log(arrFlights);
-  res.json(arrFlights);
+// router.post('/getFlights', async function (req,res){
+//   let resp;
+//   let arrFlights = [];
+//   console.log(req.body.return_date);
+//   for (let i = 1; i < arrCities.length; i++) {
+//     resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&return_date=${req.body.return_date}&token=${token}`)
+//     let fullJson = await resp.json();
+//     if (!isEmpty(fullJson.data)) {
+//       //  console.log(fullJson.data);
+//       arrFlights.push(fullJson.data)
+//       // arrNewCities.push(fullJson.name)
+//      }
+//     }
+//   // console.log(arrFlights);
+//   res.json(arrFlights);
   
-})
+// })
 
 router.post('/formFlights', async function (req,res){
   fullObj = {};
@@ -96,8 +97,9 @@ router.post('/formFlights', async function (req,res){
 
   // let arrNewCities = [];
   // console.log(req.body.origin,req.body.depart_date)
+  console.log(req.body.return_date);
   for (let i = 1; i < arrCities.length; i++) {
-    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=${origin[req.body.origin]}&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&token=${token}`)
+    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=${origin[req.body.origin]}&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&return_date=${req.body.return_date}&token=${token}`)
     let fullJson = await resp.json();
     if (!isEmpty(fullJson.data)) {
       //  console.log(fullJson.data);
@@ -157,9 +159,16 @@ arrNames.push(jsonContent[Object.keys(fullObj)[i]]);
 }
 
 for (let i = 0; i < namesCity.length; i++) {
+  fullObj[namesCity[i]].price.sort();
   cheapPrice.push(fullObj[namesCity[i]].price[0])
+  // cheapPrice.sort();
 }
-console.log(cheapPrice)
+
+// for (let j = 0; j < cheapPrice.length; j++) {
+//   cheapPrice[j].sort();  
+// }
+
+// console.log('>>>>>>>>>',cheapPrice[0])
 
   res.render('flights', {city:fullObj, name:arrNames, cheapPrice:cheapPrice, arrCities:Object.keys(fullObj) });
 });
@@ -172,7 +181,7 @@ router.get('/flights/:id', function(req, res, next) {
   let jsonContent = JSON.parse(thisFile);
   let oneName = jsonContent[id]
 
-  console.log(onecity);
+  // console.log(onecity.price);
 
   arrCities =[];
 
