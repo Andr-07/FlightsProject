@@ -26,9 +26,14 @@ router.post('/getCities', async function (req, res) {
   // let resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&destination=HKT&depart_date=2019-06&token=${token}`);
   let resp = await fetch('http://api.travelpayouts.com/data/ru/cities.json')
   // let json = await resp.json();
+  console.log(req.body.inputDestination);
+  let thisFile = fs.readFileSync("myjsonfileCountries.json");
+  let jsonContent = JSON.parse(thisFile);
+  let codeOfCountry = jsonContent[req.body.inputDestination]
+  
   let fullJson = await resp.json();
   for (let i = 0; i < fullJson.length; i++) {
-    if ((fullJson[i].country_code === "NL") && (fullJson[i].name !== null)) {
+    if ((fullJson[i].country_code === codeOfCountry) && (fullJson[i].name !== null)) {
         arrCities.push(fullJson[i].code)
         arrNameCities.push(fullJson[i].name)
     }
@@ -66,10 +71,25 @@ router.post('/getFlights', async function (req,res){
 router.post('/formFlights', async function (req,res){
   let resp;
   let arrFlights = [];
+
+  let thisFile = fs.readFileSync("myjsonfile.json");
+  let jsonContent = JSON.parse(thisFile);
+
+  function swap(json){
+      let ret = {};
+      for(let key in json){
+        ret[json[key]] = key;
+      }
+      return ret;
+    }
+
+    let origin = swap(jsonContent)
+    
+
   // let arrNewCities = [];
   // console.log(req.body.origin,req.body.depart_date)
   for (let i = 1; i < arrCities.length; i++) {
-    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=${req.body.origin}&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&token=${token}`)
+    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=${origin[req.body.origin]}&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&token=${token}`)
     let fullJson = await resp.json();
     if (!isEmpty(fullJson.data)) {
       //  console.log(fullJson.data);
