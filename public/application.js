@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     const yourDestination = document.querySelector('#yourDestination');
     const inputDestination = document.querySelector('#destination');
-console.log(yourDestination);
-console.log(inputDestination);
+
     const container = document.querySelector('.container');
     
     yourDestination && yourDestination.addEventListener('submit', async (e) => {
@@ -25,63 +24,9 @@ console.log(inputDestination);
 
         })
 
-    const getFlights = document.querySelector('.getFlights');
-        
-    // getFlights && getFlights.addEventListener('click', async (e) => {
-    //     e.preventDefault();
-    //     console.log("+++++++++++++++");
-    //     let res = await fetch('/getFlights', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-                
-    //         })
-    //     })
-    //     const whatIget = await res.json();        
-        
-    //     const all = [];
-    //     const name =[];
-    //     for (let i = 0; i < whatIget.length; i++) {
-    //         for (let key in whatIget[i]) {
-    //             all[key] = whatIget[i][key];
-    //             name[i] = key
-    //         }    
-    //     }
-
-    //     let fullObj = {};
-    //     for (let i = 0; i < name.length; i++) {
-    //         let priceArray = [];
-    //         let airlineArray = [];
-    //         let flightNumberArray = [];
-    //         let departureArray = [];
-    //         let returnArray = [];
-    //         fullObj[name[i]] = {};
-    //         for (let key in all[name[i]] ) {
-
-    //             priceArray.push(all[name[i]][key].price)
-    //             airlineArray.push(all[name[i]][key].airline)
-    //             flightNumberArray.push(all[name[i]][key].flight_number)
-    //             departureArray.push(all[name[i]][key].departure_at)
-    //             returnArray.push(all[name[i]][key].return_at)
-
-    //         }
-    //         fullObj[name[i]].price = priceArray;
-    //         fullObj[name[i]].airline = airlineArray;
-    //         fullObj[name[i]].flight_number = flightNumberArray;
-    //         fullObj[name[i]].departure_at = departureArray;
-    //         fullObj[name[i]].return_at = returnArray;
-            
-    //     }
-    //     console.log(fullObj);
-
-    // })
 
     const formFlights = document.querySelector('#formFlights');
     const origin = document.querySelector('#origin');
-    const destination = document.querySelector('#destination');
     const depart_date = document.querySelector('#depart_date');
     const return_date = document.querySelector('#return_date');
     // const container = document.querySelector('.container');
@@ -89,6 +34,12 @@ console.log(inputDestination);
     formFlights && formFlights.addEventListener('submit', async (e) => {
         e.preventDefault();
         console.log("+++++++++++++++");
+        container.innerHTML=`<div class="text-center">
+        Подождите, пожалуйста...  
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div> `
         let res = await fetch('/formFlights', {
             method: 'POST',
             headers: {
@@ -97,7 +48,6 @@ console.log(inputDestination);
             },
             body: JSON.stringify({
                 origin: origin.value,
-                destination: destination.value,
                 depart_date: depart_date.value,
                 return_date: return_date.value
 
@@ -107,7 +57,6 @@ console.log(inputDestination);
             const fullObj = await res.json();
             console.log(fullObj)
             window.location.href = '/flights'
-
 
         })
 

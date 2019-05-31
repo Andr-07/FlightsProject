@@ -1,16 +1,38 @@
-<h1>{{title}}</h1>
-<p>Перелеты в  {{title}}</p>
 
-
-<form id="formFlights" >
-    <input id="origin" placeholder="Откуда"  type="text">
-    <input id="destination" placeholder="Страна"  type="text">
-    <input id="depart_date" placeholder="Туда"  type="text">
-    <input id="return_date" placeholder="Обратно" type="text">
+<h1>Куда: {{title}}</h1>
+<br>
+{{!-- <form id="formFlights" >
+    <label>Город: </label>
+    <input id="origin" placeholder="Откуда" type="text">
+    <p></p>
+    <label>Туда: </label>
+    <input id="depart_date" placeholder="ГГГГ-MM-ДД" title="Введите данные в формате: YYYY-MM-DD" type="text">
+    <p></p>
+    <label>Обратно: </label>
+    <input id="return_date" placeholder="ГГГГ-MM-ДД" title="Введите данные в формате: YYYY-MM-DD" type="text">
+        <p></p>
     <button type="submit">Найти билеты</button>
 </form>
 
+<div class="container"></div> --}}
 
-<button class="getCities">Cities</button>
-<button class="getFlights">Flights</button>
-<div class="container"></div>
+<form id="formFlights">
+  <div class="form-group">
+    <input type="text" class="form-control" id="origin" placeholder="Откуда">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Туда</label>
+      <input type="text" id="depart_date" class="form-control" placeholder="ГГГГ-MM-ДД" title="Введите данные в формате: YYYY-MM-DD">
+    </div>
+    <div class="form-group col-md-6">
+      <label>Обратно</label>
+      <input type="text" id="return_date" class="form-control" placeholder="ГГГГ-MM-ДД" title="Введите данные в формате: YYYY-MM-DD">
+    </div>
+  </div>
+<button type="submit" class="btn btn-primary">Найти билеты</button>
+</form>
+
+
+
+<div class="container"></div> 

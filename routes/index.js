@@ -5,7 +5,7 @@ let arrCities = [];
 let arrNameCities = [];
 let arrNewCities = [];
 const fs = require('fs')
-
+let globalCountry;
 
 let fullObj = {};
 let token = "036ec1af1b5315f09124562304cc40f4";
@@ -13,20 +13,27 @@ let namesCity;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  arrCities =[];
   res.render('chooseCountry');
 });
 
+router.get('/contact', function(req, res, next) {
+  res.render('contact');
+});
+
 router.get('/yourtrip', function(req, res, next) {
-  res.render('index');
+  res.render('index', {title: globalCountry});
 });
 
 
 // ​
 router.post('/getCities', async function (req, res) {
+
   // let resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&destination=HKT&depart_date=2019-06&token=${token}`);
   let resp = await fetch('http://api.travelpayouts.com/data/ru/cities.json')
   // let json = await resp.json();
   console.log(req.body.inputDestination);
+  globalCountry = req.body.inputDestination;
   let thisFile = fs.readFileSync("myjsonfileCountries.json");
   let jsonContent = JSON.parse(thisFile);
   let codeOfCountry = jsonContent[req.body.inputDestination]
@@ -55,7 +62,7 @@ router.post('/getFlights', async function (req,res){
   let resp;
   let arrFlights = [];
   for (let i = 1; i < arrCities.length; i++) {
-    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&currency=rub&destination=${arrCities[i]}&depart_date=2019-06&token=${token}`)
+    resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&return_date=${req.body.return_date}&token=${token}`)
     let fullJson = await resp.json();
     if (!isEmpty(fullJson.data)) {
       //  console.log(fullJson.data);
@@ -69,6 +76,7 @@ router.post('/getFlights', async function (req,res){
 })
 
 router.post('/formFlights', async function (req,res){
+  fullObj = {};
   let resp;
   let arrFlights = [];
 
@@ -165,6 +173,8 @@ router.get('/flights/:id', function(req, res, next) {
   let oneName = jsonContent[id]
 
   console.log(onecity);
+
+  arrCities =[];
 
   res.render('oneCity', {onecity:onecity, name:oneName})
 });

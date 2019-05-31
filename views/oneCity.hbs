@@ -1,33 +1,34 @@
+
 <h1>{{name}}</h1>
 
 <p></p>
 
 <div class="row">
     <div class="col-2">
- Стоимость:
+ <h5>Стоимость:</h5>
 {{#each onecity.price}}
 <div>{{this}} руб.</div>
 <hr>
 {{/each}}
 </div>
-    <div class="col-2">
- Дата вылета:
+    <div class="col-3">
+ <h5> Дата вылета:</h5>
 {{#each onecity.departure_at}}
 <div>{{this}}</div>
 <hr>
 {{/each}}
 </div>
 
-    <div class="col-2">
- Дата прилета:
+    <div class="col-3">
+ <h5> Дата прилета:</h5>
 {{#each onecity.return_at}}
 <div>{{this}}</div>
 <hr>
 {{/each}}
 </div>
 
-    <div class="col-1">
- Авиалинии:
+    <div class="col-2">
+ <h5>Авиалинии:</h5>
 {{#each onecity.airline}}
 <div>{{this}}</div>
 <hr>
@@ -35,7 +36,7 @@
 </div>
 
     <div class="col-2">
- Номер рейса:
+ <h5>Номер рейса:</h5>
 {{#each onecity.flight_number}}
 <div>{{this}}</div>
 <hr>
@@ -43,3 +44,66 @@
 </div>
 
 </div>
+
+<div class="list-group row">
+  <a href="#" class="list-group-item list-group-item-action active">
+Билеты можно купить у следующих агентств:
+  </a>
+  <div class="row">
+      <div class="col-3">
+  <a href="#" class="list-group-item list-group-item-action">Bravofly</a>
+  <a href="#" class="list-group-item list-group-item-action">Belavia</a>
+  <a href="#" class="list-group-item list-group-item-action">CityJet</a>
+  <a href="#" class="list-group-item list-group-item-action">JetCompass</a>
+  <a href="#" class="list-group-item list-group-item-action">TAP Portugal</a>
+  <a href="#" class="list-group-item list-group-item-action">Thai Smile Airways</a>
+  <a href="#" class="list-group-item list-group-item-action">FlightNetwork</a>
+    <a href="#" class="list-group-item list-group-item-action">Kuwait Airways</a>
+      </div>
+      <div class="col-3">
+  <a href="#" class="list-group-item list-group-item-action">Oman Air</a>
+  <a href="#" class="list-group-item list-group-item-action">Kiwi.com</a>
+  <a href="#" class="list-group-item list-group-item-action">S7 Airlines</a>
+  <a href="#" class="list-group-item list-group-item-action">Pegasus Airlines</a>
+  <a href="#" class="list-group-item list-group-item-action">Singapore Airlines</a>
+  <a href="#" class="list-group-item list-group-item-action">KLM/AirFrance</a>
+  <a href="#" class="list-group-item list-group-item-action">Tuifly</a>
+  <a href="#" class="list-group-item list-group-item-action">Air Caraibes</a>
+      </div>
+<div class="col-3">
+  <a href="#" class="list-group-item list-group-item-action">Aeroflot</a>
+  <a href="#" class="list-group-item list-group-item-action">Avianca Brazil</a>
+  <a href="#" class="list-group-item list-group-item-action">Amadeus external</a>
+  <a href="#" class="list-group-item list-group-item-action">Icelandair</a>
+  <a href="#" class="list-group-item list-group-item-action">El Al</a>
+  <a href="#" class="list-group-item list-group-item-action">Pobeda</a>
+  <a href="#" class="list-group-item list-group-item-action">Braathens</a>
+  <a href="#" class="list-group-item list-group-item-action">CompassFlights</a>
+</div>
+<div class="col-3">
+  <a href="#" class="list-group-item list-group-item-action">Kenya Airways</a>
+  <a href="#" class="list-group-item list-group-item-action">SmartWings</a>
+  <a href="#" class="list-group-item list-group-item-action">Virgin Australia</a>
+  <a href="#" class="list-group-item list-group-item-action">Frenchbee</a>
+  <a href="#" class="list-group-item list-group-item-action">Japan Airlines</a>
+  <a href="#" class="list-group-item list-group-item-action">Tickets.ru</a>
+  <a href="#" class="list-group-item list-group-item-action">SmartFares</a>
+  <a href="#" class="list-group-item list-group-item-action">Book&trip</a>
+  </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-3">
+    </div>
+</div>
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
