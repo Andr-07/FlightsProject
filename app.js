@@ -4,9 +4,14 @@ const app = express();
 // HTTP request logger middleware for node.js.
 // Логгирование деталей запросов.
 const morgan = require("morgan");
+// require('dotenv').config();
+
 app.use(morgan("dev"));
 
 const path = require('path');
+
+require('dotenv').config({path: 'routes/.env'});
+
 
 // Обработка POST запросов.
 // urlencoded.
@@ -27,8 +32,10 @@ mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true});
 // Подключаем статику
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Подключаем views(hbs)
+// Подключаем views(hbs)https://git.heroku.com/flight-tickets.git
+
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'hbs');
 
 

@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 let fetch = require('node-fetch')
+
+let token = process.env.TOKEN;
+// console.log(">>>>>>>>>>>",token);
+
 let arrCities = [];
 let arrNameCities = [];
 let arrNewCities = [];
@@ -8,7 +12,6 @@ const fs = require('fs')
 let globalCountry;
 
 let fullObj = {};
-let token = "036ec1af1b5315f09124562304cc40f4";
 let namesCity;
 
 /* GET home page. */
@@ -58,23 +61,6 @@ function isEmpty(obj) {
   return true;
 }
 
-// router.post('/getFlights', async function (req,res){
-//   let resp;
-//   let arrFlights = [];
-//   console.log(req.body.return_date);
-//   for (let i = 1; i < arrCities.length; i++) {
-//     resp = await fetch(`http://api.travelpayouts.com/v1/prices/cheap?origin=MOW&currency=rub&destination=${arrCities[i]}&depart_date=${req.body.depart_date}&return_date=${req.body.return_date}&token=${token}`)
-//     let fullJson = await resp.json();
-//     if (!isEmpty(fullJson.data)) {
-//       //  console.log(fullJson.data);
-//       arrFlights.push(fullJson.data)
-//       // arrNewCities.push(fullJson.name)
-//      }
-//     }
-//   // console.log(arrFlights);
-//   res.json(arrFlights);
-  
-// })
 
 router.post('/formFlights', async function (req,res){
   fullObj = {};
