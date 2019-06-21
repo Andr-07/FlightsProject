@@ -4,3 +4,6 @@
 <img src="https://pp.userapi.com/c855424/v855424067/72f18/yop05oY-cM4.jpg"></img> 
 <img src="https://pp.userapi.com/c855424/v855424067/72f28/kbnYdwdXqvo.jpg"></img> 
 <img src="https://pp.userapi.com/c855424/v855424067/72f31/ZHTEpA36W7U.jpg"></img> 
+
+<b><h3>Technologies:</h3><hr></hr></b>
+Node, Express, MongoDB, Mongoose, Bootstrap, API Aviasales
